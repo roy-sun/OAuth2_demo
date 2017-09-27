@@ -23,9 +23,6 @@
     <mvc:annotation-driven>
     </mvc:annotation-driven>
 
-    <!-- 当在web.xml 中   DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->
-    <mvc:default-servlet-handler/>
-
 
 
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
