@@ -13,8 +13,10 @@
 		</style>
 	</head>
 	<body>
+		<h1>B站页面</h1>
 	    <label>获得授权码:</label><input type="text" readonly="readonly" name="response_type" value="<%=request.getParameter("code") %>"><br>
 	    <label>获得Token:</label><input type="text" readonly="readonly" id="access_token" name="access_token">&nbsp;&nbsp;有效期<span id="expires_in"></span><br>
+	    <button id="getUserInfoBtn">通过Token得到用户信息</button>
 		<script type="text/javascript">
 			$.ajax({
 				type:"post",
@@ -36,6 +38,29 @@
 					$("#token").val("error");
 				}
 			})
+			$("#getUserInfoBtn").click(function(){
+				var access_token = $("#access_token").val();
+				if(access_token&&access_token!="error"){
+					$.ajax({
+						type:"post",
+						data:{
+							access_token:access_token<%-- ,
+							redirect_uri:"${redirect_uri}",
+							grant_type:"${grant_type}",
+							client_id:"${client_id}",
+							client_secret:"${client_secret}",
+							code:"<%=request.getParameter("code") %>" --%>
+						},
+						url:"${userInfo}",
+						success:function(data){
+							alert(data);
+						},
+						error:function(error){
+							alert("error");
+						}
+					})
+				}
+			});
 		</script>
 	</body>
 </html>

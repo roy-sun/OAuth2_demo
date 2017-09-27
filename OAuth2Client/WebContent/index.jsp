@@ -15,6 +15,7 @@
 		</style>
 	</head>
 	<body>
+		<h1>B站页面</h1>
 		<form action="${oAuthPage}" method="post">
 			<label>redirect_uri:</label><input type="text" readonly="readonly" name="redirect_uri" value="${redirect_uri}"><br>
 		    <label>client_id:</label><input type="text" readonly="readonly" name="client_id" value="${client_id}"><br>
