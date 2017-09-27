@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 	private static Map<String,String> users = new HashMap<String,String>();
 	static{
 		users.put("admin", "password");
+		users.put("roy", "roy");
 	}
 	
 	@Override
