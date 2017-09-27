@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cn.roy.service.OAuthService;
-import cn.roy.util.Constants;
 
 @RestController
 public class AccessTokenController {
