@@ -1,26 +1,29 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-		<style type="text/css">
-			label{
-				width:120px;
-				display: inline-block;
-			}
-			input{
-				width:250px;
-			}
-		</style>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>扫码页面</title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/qrcode.min.js"></script>
 	</head>
 	<body>
-		<h1>B站页面</h1>
-		<form action="${oAuthPage}" method="post">
-			<label>redirect_uri:</label><input type="text" readonly="readonly" name="redirect_uri" value="${redirect_uri}"><br>
-		    <label>client_id:</label><input type="text" readonly="readonly" name="client_id" value="${client_id}"><br>
-		    <label>response_type:</label><input type="text" readonly="readonly" name="response_type" value="${response_type}"><br>
-		    <input type="submit" value="去登录授权页面">
-		</form>
+		<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+		<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode"), {
+				width : 100,
+				height : 100
+			});
+			function makeCode (url) {		
+				if (url) {
+					qrcode.makeCode(url);
+				}
+			}
+			var url = "${client_login_uri}?autoJump=autoJump";
+			
+			makeCode(url);
+			
+		</script>
 	</body>
 </html>

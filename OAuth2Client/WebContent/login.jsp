@@ -1,0 +1,33 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			label{
+				width:120px;
+				display: inline-block;
+			}
+			input{
+				width:250px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>B站页面</h1>
+		<form action="${oAuthPage}" method="post">
+			<label>redirect_uri:</label><input type="text" readonly="readonly" name="redirect_uri" value="${redirect_uri}"><br>
+		    <label>client_id:</label><input type="text" readonly="readonly" name="client_id" value="${client_id}"><br>
+		    <label>response_type:</label><input type="text" readonly="readonly" name="response_type" value="${response_type}"><br>
+		    <input type="submit" value="去登录授权页面">
+		</form>
+	    <script type="text/javascript">
+	    	if('<%=request.getParameter("autoJump")%>'=='autoJump'){
+		    	window.onload = function(){
+			    	document.forms[0].submit();
+		    	}
+	    	}
+	    </script>
+	</body>
+</html>
