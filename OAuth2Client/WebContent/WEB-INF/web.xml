@@ -4,38 +4,10 @@
 	<servlet>
 		<servlet-name>ClientServlet</servlet-name>
 		<servlet-class>cn.roy.servlet.ClientServlet</servlet-class>
-		<!-- <init-param>
-			<param-name>redirect_uri</param-name>
-			<param-value>http://localhost:8080/OAuth2Client/oAuthSuccess.jsp</param-value>
-		</init-param>
-		<init-param>
-			<param-name>client_id</param-name>
-			<param-value>client_id</param-value>
-		</init-param>
-		<init-param>
-			<param-name>client_secret</param-name>
-			<param-value>client_secret</param-value>
-		</init-param>
-		<init-param>
-			<param-name>response_type</param-name>
-			<param-value>code</param-value>
-		</init-param>
-		<init-param>
-			<param-name>grant_type</param-name>
-			<param-value>authorization_code</param-value>
-		</init-param>
-		<init-param>
-			<param-name>oAuthPage</param-name>
-			<param-value>http://localhost:8080/OAuth2Server/login.jsp</param-value>
-		</init-param>
-		<init-param>
-			<param-name>accessToken</param-name>
-			<param-value>http://localhost:8080/OAuth2Server/accessToken</param-value>
-		</init-param>
-		<init-param>
-			<param-name>userInfo</param-name>
-			<param-value>http://localhost:8080/OAuth2Server/userInfo</param-value>
-		</init-param> -->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientServlet</servlet-name>
+		<url-pattern>/ClientServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

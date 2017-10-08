@@ -21,13 +21,10 @@
 			$.ajax({
 				type:"post",
 				data:{
-					redirect_uri:"${redirect_uri}",
-					grant_type:"${grant_type}",
-					client_id:"${client_id}",
-					client_secret:"${client_secret}",
-					code:"<%=request.getParameter("code") %>"
+					code:"<%=request.getParameter("code") %>",
+					method:"accessToken"
 				},
-				url:"${accessToken}",
+				url:"ClientServlet",
 				success:function(data){
 					token = JSON.parse(data);
 					$("#access_token").val(token.access_token);
@@ -44,14 +41,10 @@
 					$.ajax({
 						type:"post",
 						data:{
-							access_token:access_token<%-- ,
-							redirect_uri:"${redirect_uri}",
-							grant_type:"${grant_type}",
-							client_id:"${client_id}",
-							client_secret:"${client_secret}",
-							code:"<%=request.getParameter("code") %>" --%>
+							access_token:access_token,
+							method:"userInfo"
 						},
-						url:"${userInfo}",
+						url:"ClientServlet",
 						success:function(data){
 							alert(data);
 						},
